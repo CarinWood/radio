@@ -19,3 +19,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.audio-section {
+    margin-left: 10px;
+    margin-top: 10px;
+}
