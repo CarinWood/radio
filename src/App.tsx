@@ -1,3 +1,10 @@
+import { Home } from "./pages/Home";
+import "./styles/app.css";
+
 export function App() {
-  return <></>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 }
