@@ -1,26 +1,12 @@
 import Channel from "../components/channel/Channel";
 import "../styles/home.css";
-import { useEffect, useState } from "react";
+import { FC, useState } from "react";
+import { RadioProps } from "../types/Types";
 
-export const Home = () => {
-  const [p1, setP1] = useState();
-  const [p2, setP2] = useState();
-  const [p3, setP3] = useState();
+
+
+export const Home:FC<RadioProps> = ({p1, p2, p3}) => {
   const [radioNow, setRadioNow] = useState("");
-
-  async function getPrograms() {
-    const response = await fetch(
-      "http://api.sr.se/api/v2/channels?format=json"
-    );
-    const data = await response.json();
-    setP1(data.channels[0]);
-    setP2(data.channels[1]);
-    setP3(data.channels[2]);
-  }
-
-  useEffect(() => {
-    getPrograms();
-  }, []);
 
   function startRadio(name: string) {
     if (name === "P1") {
@@ -32,7 +18,7 @@ export const Home = () => {
     }
   }
 
-  console.log(radioNow);
+
 
   return (
     <div>
