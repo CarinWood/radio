@@ -6,11 +6,11 @@ import Channels from "./pages/Channels";
 import { useEffect, useState } from "react";
 import { RadioItem } from "./types/Types";
 
-
 export function App() {
-  const [p1, setP1] = useState<RadioItem>({} as RadioItem)
-  const [p2, setP2] = useState<RadioItem>({} as RadioItem)
-  const [p3, setP3] = useState<RadioItem>({} as RadioItem)
+  const [p1, setP1] = useState<RadioItem>({} as RadioItem);
+  const [p2, setP2] = useState<RadioItem>({} as RadioItem);
+  const [p3, setP3] = useState<RadioItem>({} as RadioItem);
+  const [p4Blekinge, setP4Blekinge] = useState<RadioItem>({} as RadioItem);
 
   async function getPrograms() {
     const response = await fetch(
@@ -20,19 +20,22 @@ export function App() {
     setP1(data.channels[0]);
     setP2(data.channels[1]);
     setP3(data.channels[2]);
+    setP4Blekinge(data.channels[3]);
   }
 
   useEffect(() => {
     getPrograms();
   }, []);
 
-
   return (
     <div>
       <Header />
       <Routes>
         <Route path="/" element={<Home p1={p1} p2={p2} p3={p3} />} />
-        <Route path="/kanaler" element={<Channels/>}/>
+        <Route
+          path="/kanaler"
+          element={<Channels p1={p1} p2={p2} p3={p3} p4Blekinge={p4Blekinge} />}
+        />
       </Routes>
     </div>
   );
