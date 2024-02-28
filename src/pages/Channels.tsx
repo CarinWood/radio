@@ -8,9 +8,11 @@ const Channels: FC<AllChannelsProps> = ({
 }) => {
   return (
     <div className="channels-container">
+      <div className="channel-box">
      {channels.map((channel, i) => {
       return <div key={i}><ChanelItem name={channel.name} img={channel.image}/> </div>
      })}
+     </div>
     </div>
   );
 };

@@ -1,4 +1,16 @@
 .channels-container {
     width: 100vw;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.channel-box {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 28px;
 }
