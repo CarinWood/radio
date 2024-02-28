@@ -9,7 +9,10 @@ const Channels: FC<AllChannelsProps> = ({
   p4Blekinge,
   p4Dalarna,
   p4Gotland,
-  p4Gavleborg
+  p4Gavleborg,
+  p4Goteborg,
+  p4Halland,
+  p4Jamtland
 }) => {
   return (
     <div className="channels-container">
@@ -20,6 +23,9 @@ const Channels: FC<AllChannelsProps> = ({
       {p4Dalarna.name}
       {p4Gotland.name}
       {p4Gavleborg.name}
+      {p4Goteborg.name}
+      {p4Halland.name}
+      {p4Jamtland.name}
     </div>
   );
 };

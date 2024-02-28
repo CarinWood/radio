@@ -14,6 +14,9 @@ export function App() {
   const [p4Dalarna, setP4Dalarna] = useState<RadioItem>({} as RadioItem);
   const [p4Gotland, setP4Gotland] = useState<RadioItem>({} as RadioItem);
   const [p4Gavleborg, setP4Gavleborg] = useState<RadioItem>({} as RadioItem);
+  const [p4Goteborg, setP4Goteborg] = useState<RadioItem>({} as RadioItem);
+  const [p4Halland, setP4Halland] = useState<RadioItem>({} as RadioItem);
+  const [p4Jamtland, setP4Jamtland] = useState<RadioItem>({} as RadioItem);
 
   async function getPrograms() {
     const response = await fetch(
@@ -27,6 +30,9 @@ export function App() {
     setP4Dalarna(data.channels[4]);
     setP4Gotland(data.channels[5]);
     setP4Gavleborg(data.channels[6]);
+    setP4Goteborg(data.channels[7]);
+    setP4Halland(data.channels[8]);
+    setP4Jamtland(data.channels[9]);
   }
 
   useEffect(() => {
@@ -49,6 +55,9 @@ export function App() {
               p4Dalarna={p4Dalarna}
               p4Gotland={p4Gotland}
               p4Gavleborg={p4Gavleborg}
+              p4Goteborg={p4Goteborg}
+              p4Halland={p4Halland}
+              p4Jamtland={p4Jamtland}
             />
           }
         />

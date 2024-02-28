@@ -32,4 +32,7 @@ export interface LiveAudio {
     p4Dalarna: RadioItem
     p4Gotland: RadioItem
     p4Gavleborg: RadioItem
+    p4Goteborg: RadioItem
+    p4Halland: RadioItem
+    p4Jamtland: RadioItem
   }
