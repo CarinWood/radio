@@ -22,6 +22,8 @@ export interface LiveAudio {
     p1: RadioItem;
     p2: RadioItem;
     p3: RadioItem;
+    startRadio: (name: string) => void
+    radioNow: string
   }
 
   export interface AllChannelsProps {

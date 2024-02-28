@@ -1,24 +1,11 @@
 import Channel from "../components/channel/Channel";
 import "../styles/home.css";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { RadioProps } from "../types/Types";
 
 
 
-export const Home:FC<RadioProps> = ({p1, p2, p3}) => {
-  const [radioNow, setRadioNow] = useState("");
-
-  function startRadio(name: string) {
-    if (name === "P1") {
-      setRadioNow(p1.liveaudio.url);
-    } else if (name === "P2") {
-      setRadioNow(p2.liveaudio.url);
-    } else {
-      setRadioNow(p3.liveaudio.url);
-    }
-  }
-
-
+export const Home:FC<RadioProps> = ({p1, p2, p3, startRadio, radioNow}) => {
 
   return (
     <div>

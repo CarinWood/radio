@@ -11,6 +11,7 @@ export function App() {
   const [p1, setP1] = useState<RadioItem>({} as RadioItem);
   const [p2, setP2] = useState<RadioItem>({} as RadioItem);
   const [p3, setP3] = useState<RadioItem>({} as RadioItem);
+  const [radioNow, setRadioNow] = useState("");
  
 
   async function getPrograms() {
@@ -29,11 +30,21 @@ export function App() {
     getPrograms();
   }, []);
 
+  function startRadio(name: string) {
+    if (name === "P1") {
+      setRadioNow(p1.liveaudio.url);
+    } else if (name === "P2") {
+      setRadioNow(p2.liveaudio.url);
+    } else {
+      setRadioNow(p3.liveaudio.url);
+    }
+  }
+
   return (
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<Home p1={p1} p2={p2} p3={p3} />} />
+        <Route path="/" element={<Home p1={p1} p2={p2} p3={p3} startRadio={startRadio} radioNow={radioNow} />} />
         <Route
           path="/kanaler"
           element={
