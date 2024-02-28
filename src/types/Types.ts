@@ -29,4 +29,7 @@ export interface LiveAudio {
     p2: RadioItem;
     p3: RadioItem;
     p4Blekinge: RadioItem
+    p4Dalarna: RadioItem
+    p4Gotland: RadioItem
+    p4Gavleborg: RadioItem
   }
