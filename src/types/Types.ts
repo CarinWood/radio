@@ -28,3 +28,8 @@ export interface LiveAudio {
     channels: RadioItem[];
   }
 
+  export interface ChannelProps {
+      name: string
+      img: string
+  }
+
