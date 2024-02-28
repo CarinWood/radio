@@ -25,14 +25,6 @@ export interface LiveAudio {
   }
 
   export interface AllChannelsProps {
-    p1: RadioItem;
-    p2: RadioItem;
-    p3: RadioItem;
-    p4Blekinge: RadioItem
-    p4Dalarna: RadioItem
-    p4Gotland: RadioItem
-    p4Gavleborg: RadioItem
-    p4Goteborg: RadioItem
-    p4Halland: RadioItem
-    p4Jamtland: RadioItem
+    channels: RadioItem[];
   }
+
