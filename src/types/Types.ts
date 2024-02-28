@@ -23,7 +23,6 @@ export interface LiveAudio {
     p2: RadioItem;
     p3: RadioItem;
     startRadio: (name: string) => void
-    radioNow: string
   }
 
   export interface AllChannelsProps {
@@ -33,5 +32,9 @@ export interface LiveAudio {
   export interface ChannelProps {
       name: string
       img: string
+  }
+
+  export interface RadioNowProps {
+      radioNow: string
   }
 

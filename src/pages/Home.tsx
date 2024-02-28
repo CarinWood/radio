@@ -5,7 +5,7 @@ import { RadioProps } from "../types/Types";
 
 
 
-export const Home:FC<RadioProps> = ({p1, p2, p3, startRadio, radioNow}) => {
+export const Home:FC<RadioProps> = ({p1, p2, p3, startRadio}) => {
 
   return (
     <div>
@@ -22,11 +22,6 @@ export const Home:FC<RadioProps> = ({p1, p2, p3, startRadio, radioNow}) => {
             <Channel src={p3.image} name={p3.name} startRadio={startRadio} />
           )}
         </article>
-      </section>
-      <section className="audio-section">
-        <audio controls key={radioNow} autoPlay>
-          <source src={radioNow} type="audio/mpeg" />
-        </audio>
       </section>
     </div>
   );

@@ -5,6 +5,7 @@ import "./styles/app.css";
 import Channels from "./pages/Channels";
 import { useEffect, useState } from "react";
 import { RadioItem } from "./types/Types";
+import Radio from "./components/radio/Radio";
 
 export function App() {
   const [channels, setChannels] = useState<Array<RadioItem>>([]);
@@ -43,8 +44,9 @@ export function App() {
   return (
     <div>
       <Header />
+      <Radio radioNow={radioNow}/>
       <Routes>
-        <Route path="/" element={<Home p1={p1} p2={p2} p3={p3} startRadio={startRadio} radioNow={radioNow} />} />
+        <Route path="/" element={<Home p1={p1} p2={p2} p3={p3} startRadio={startRadio}/>} />
         <Route
           path="/kanaler"
           element={
