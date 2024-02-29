@@ -1,10 +1,16 @@
-import './program.css'
 
+import "../styles/program.css";
 
 const Program = () => {
-  return (
-    <div>Program</div>
-  )
-}
 
-export default Program
+  
+
+
+  return (
+    <div className="program-contianer">
+      <div></div>
+    </div>
+  );
+};
+
+export default Program;
