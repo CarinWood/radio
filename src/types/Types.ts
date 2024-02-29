@@ -27,11 +27,13 @@ export interface LiveAudio {
 
   export interface AllChannelsProps {
     channels: RadioItem[];
+    startRadio: (name: string) => void
   }
 
   export interface ChannelProps {
       name: string
       img: string
+      startRadio: (name: string) => void
   }
 
   export interface RadioNowProps {
