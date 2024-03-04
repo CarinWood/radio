@@ -40,3 +40,7 @@ export interface LiveAudio {
       radioNow: string
   }
 
+  export interface programProps {
+    p1: number
+  }
+

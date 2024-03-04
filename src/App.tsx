@@ -69,7 +69,7 @@ export function App() {
         />
         <Route
           path="/program"
-          element={<Program/>}
+          element={<Program p1={p1.id}/>}
         />
       </Routes>
     </div>
