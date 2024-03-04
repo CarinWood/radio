@@ -1,5 +1,6 @@
 import "../styles/program.css";
 import { useState } from "react";
+import { IoIosPlay } from "react-icons/io";
 
 const Program = () => {
   const [programsArray, setProgramsArray] = useState<any[]>([]);
@@ -47,10 +48,12 @@ const Program = () => {
           return <p key={i}>{program.name}</p>;
         })}
       </div>
-      <div>
-        <p>
-          {currentPage} / {totalPages}{" "}
+      <div className="pagination">
+        <IoIosPlay className="arrow-left" />
+        <p className="pagination-p">
+          {currentPage} / {totalPages}
         </p>
+        <IoIosPlay className="arrow-right" />
       </div>
     </div>
   );
