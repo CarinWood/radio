@@ -1,25 +1,29 @@
-import { FC } from "react";
 import "../styles/program.css";
-import { programProps } from "../types/Types";
+import { useState } from "react";
 
-const Program: FC<programProps> = ({ p1 }) => {
+const Program = () => {
+  const [programsArray, setProgramsArray] = useState<any[]>([]);
+  const [currentPage, setCurrentPage] = useState();
+  const [totalPages, setTotalPages] = useState();
+
   async function getPrograms(id: number) {
     try {
       const response = await fetch(
         `http://api.sr.se/api/v2/programs/index?programcategoryid=${id}&&format=json&&page=1&&size=10`
       );
       const data = await response.json();
-      console.log(data);
+      setCurrentPage(data.pagination.page);
+      setTotalPages(data.pagination.totalpages);
+      setProgramsArray(data.programs);
     } catch (error) {
       console.error(error);
     }
   }
 
-
   const showCategory = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedCategoryId = parseInt(event.target.value)
-    getPrograms(selectedCategoryId)
-  }
+    const selectedCategoryId = parseInt(event.target.value);
+    getPrograms(selectedCategoryId);
+  };
 
   return (
     <div className="program-contianer">
@@ -37,6 +41,16 @@ const Program: FC<programProps> = ({ p1 }) => {
           <option value={4}>Livsåskådning</option>
           <option value={5}>Musik</option>
         </select>
+      </div>
+      <div>
+        {programsArray.map((program, i) => {
+          return <p key={i}>{program.name}</p>;
+        })}
+      </div>
+      <div>
+        <p>
+          {currentPage} / {totalPages}{" "}
+        </p>
       </div>
     </div>
   );
