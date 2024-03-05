@@ -1,21 +1,28 @@
 import "../styles/program.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosPlay } from "react-icons/io";
+import ProgramItem from "../components/programItem/ProgramItem";
+
+interface ProgramProps {
+  name: string;
+}
 
 const Program = () => {
-  const [programsArray, setProgramsArray] = useState<any[]>([]);
-  const [currentPage, setCurrentPage] = useState();
+  const [programsArray, setProgramsArray] = useState<ProgramProps[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
+  const [categoryId, setCategoryId] = useState(0);
 
-  async function getPrograms(id: number) {
+  async function getPrograms(id: number, page: number) {
     try {
       const response = await fetch(
-        `http://api.sr.se/api/v2/programs/index?programcategoryid=${id}&&format=json&&page=1&&size=10`
+        `http://api.sr.se/api/v2/programs/index?programcategoryid=${id}&&format=json&&page=${page}&&size=10`
       );
       const data = await response.json();
       setCurrentPage(data.pagination.page);
       setTotalPages(data.pagination.totalpages);
       setProgramsArray(data.programs);
+      console.log(data.programs);
     } catch (error) {
       console.error(error);
     }
@@ -23,8 +30,18 @@ const Program = () => {
 
   const showCategory = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedCategoryId = parseInt(event.target.value);
-    getPrograms(selectedCategoryId);
+    setCategoryId(selectedCategoryId);
+    getPrograms(categoryId, currentPage);
   };
+
+  const nextPage = () => {
+    setCurrentPage(2);
+    getPrograms(categoryId, currentPage);
+  };
+
+  useEffect(() => {
+    getPrograms(categoryId, currentPage);
+  }, [currentPage, categoryId]);
 
   return (
     <div className="program-contianer">
@@ -43,9 +60,13 @@ const Program = () => {
           <option value={5}>Musik</option>
         </select>
       </div>
-      <div>
+      <div className="program-items-div">
         {programsArray.map((program, i) => {
-          return <p key={i}>{program.name}</p>;
+          return (
+            <div key={i}>
+              <ProgramItem name={program.name} img={program.programimage} />
+            </div>
+          );
         })}
       </div>
       <div className="pagination">
@@ -53,7 +74,7 @@ const Program = () => {
         <p className="pagination-p">
           {currentPage} / {totalPages}
         </p>
-        <IoIosPlay className="arrow-right" />
+        <IoIosPlay className="arrow-right" onClick={nextPage} />
       </div>
     </div>
   );

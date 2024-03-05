@@ -1,0 +1,23 @@
+.programItem-container {
+   margin: 10px 15px;
+}
+
+.program-item-img {
+    width: 200px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.lower-programitem {
+    width: 200px;
+    background-color: #212529;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name-frame {
+    width: 180px;
+    height: 30px;
+    border-bottom: 1px solid white;
+}
