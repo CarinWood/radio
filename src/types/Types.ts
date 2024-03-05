@@ -38,6 +38,8 @@ export interface LiveAudio {
 
   export interface RadioNowProps {
       radioNow: string
+      hideRadio: boolean
+      isHideRadio: (val: boolean) => void
   }
 
   export interface ProgramProps {

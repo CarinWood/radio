@@ -9,6 +9,7 @@ import Radio from "./components/radio/Radio";
 import Program from "./pages/Program";
 
 export function App() {
+  const [hideRadio, isHideRadio] = useState(true);
   const [channels, setChannels] = useState<Array<RadioItem>>([]);
   const [p1, setP1] = useState<RadioItem>({} as RadioItem);
   const [p2, setP2] = useState<RadioItem>({} as RadioItem);
@@ -33,31 +34,45 @@ export function App() {
   function startRadio(name: string) {
     if (name === "P1") {
       setRadioNow(channels[0].liveaudio.url);
+      isHideRadio(false);
     } else if (name === "P2") {
       setRadioNow(channels[1].liveaudio.url);
+      isHideRadio(false);
     } else if (name === "P3") {
       setRadioNow(channels[2].liveaudio.url);
+      isHideRadio(false);
     } else if (name === "P4 Blekinge") {
       setRadioNow(channels[3].liveaudio.url);
+      isHideRadio(false);
     } else if (name === "P4 Dalarna") {
       setRadioNow(channels[4].liveaudio.url);
+      isHideRadio(false);
     } else if (name === "P4 Gotland") {
       setRadioNow(channels[5].liveaudio.url);
+      isHideRadio(false);
     } else if (name === "P4 Gävleborg") {
       setRadioNow(channels[6].liveaudio.url);
+      isHideRadio(false);
     } else if (name === "P4 Göteborg") {
       setRadioNow(channels[7].liveaudio.url);
+      isHideRadio(false);
     } else if (name === "P4 Halland") {
       setRadioNow(channels[8].liveaudio.url);
+      isHideRadio(false);
     } else {
       setRadioNow(channels[9].liveaudio.url);
+      isHideRadio(false);
     }
   }
 
   return (
     <div>
       <Header />
-      <Radio radioNow={radioNow} />
+      <Radio
+        radioNow={radioNow}
+        isHideRadio={isHideRadio}
+        hideRadio={hideRadio}
+      />
       <Routes>
         <Route
           path="/"
@@ -67,10 +82,7 @@ export function App() {
           path="/kanaler"
           element={<Channels channels={channels} startRadio={startRadio} />}
         />
-        <Route
-          path="/program"
-          element={<Program/>}
-        />
+        <Route path="/program" element={<Program />} />
       </Routes>
     </div>
   );

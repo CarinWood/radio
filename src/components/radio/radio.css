@@ -2,4 +2,29 @@
     position: fixed; 
     bottom: 0; 
     right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.exit {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    visibility: visible
+}
+
+.close {
+    font-size: 20px;
+}
+
+.hide {
+    visibility: hidden
 }
