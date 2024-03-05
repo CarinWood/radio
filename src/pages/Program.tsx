@@ -64,7 +64,7 @@ const Program = () => {
         {programsArray.map((program, i) => {
           return (
             <div key={i}>
-              <ProgramItem name={program.name} img={program.programimage} />
+              <ProgramItem name={program.name} img={program.programimage} description={program.description} url={program.programurl}/>
             </div>
           );
         })}

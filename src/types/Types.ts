@@ -43,6 +43,8 @@ export interface LiveAudio {
   export interface ProgramProps {
     name: string
     img: string
+    description: string
+    url: string
   }
 
  
