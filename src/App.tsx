@@ -14,6 +14,7 @@ export function App() {
   const [p1, setP1] = useState<RadioItem>({} as RadioItem);
   const [p2, setP2] = useState<RadioItem>({} as RadioItem);
   const [p3, setP3] = useState<RadioItem>({} as RadioItem);
+  const [p4, setP4] = useState<RadioItem>({} as RadioItem);
   const [radioNow, setRadioNow] = useState("");
 
   async function getPrograms() {
@@ -25,6 +26,8 @@ export function App() {
     setP1(data.channels[0]);
     setP2(data.channels[1]);
     setP3(data.channels[2]);
+    setP4(data.channels[7]);
+ 
   }
 
   useEffect(() => {
@@ -76,7 +79,9 @@ export function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home p1={p1} p2={p2} p3={p3} startRadio={startRadio} />}
+          element={
+            <Home p1={p1} p2={p2} p3={p3} p4={p4} startRadio={startRadio} />
+          }
         />
         <Route
           path="/kanaler"

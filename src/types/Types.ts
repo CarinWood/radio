@@ -22,6 +22,7 @@ export interface LiveAudio {
     p1: RadioItem;
     p2: RadioItem;
     p3: RadioItem;
+    p4: RadioItem;
     startRadio: (name: string) => void
   }
 
