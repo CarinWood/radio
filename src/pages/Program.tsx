@@ -11,7 +11,7 @@ const Program = () => {
   const [programsArray, setProgramsArray] = useState<ProgramProps[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
-  const [categoryId, setCategoryId] = useState(0);
+  const [categoryId, setCategoryId] = useState(2);
 
   async function getPrograms(id: number, page: number) {
     try {
@@ -28,11 +28,15 @@ const Program = () => {
     }
   }
 
-  const showCategory = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  useEffect(() => {
+    getPrograms(2, 1);
+  }, []);
+
+  const showCategory = async (event: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentPage(1);
     const selectedCategoryId = parseInt(event.target.value);
     setCategoryId(selectedCategoryId);
-    getPrograms(categoryId, 1);
+    getPrograms(selectedCategoryId, 1);
   };
 
   const nextPage = () => {
@@ -57,7 +61,7 @@ const Program = () => {
     <div className="program-contianer">
       <div className="categories">
         <p className="category-p">Välj kategori:</p>
-        <select onChange={showCategory}>
+        <select onChange={showCategory} value={categoryId}>
           <option value={2}>Barn 3 - 8 år</option>
           <option value={132}>Barn 9 - 13 å</option>
           <option value={82}>Dokumentär</option>
