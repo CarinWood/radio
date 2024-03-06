@@ -3,12 +3,9 @@ import "../styles/home.css";
 import { FC } from "react";
 import { RadioProps } from "../types/Types";
 
-
-
-export const Home:FC<RadioProps> = ({p1, p2, p3, startRadio}) => {
-
+export const Home: FC<RadioProps> = ({ p1, p2, p3, startRadio }) => {
   return (
-    <div>
+    <div className="home-container">
       <section className="live">
         <p className="heading">Lyssna direkt</p>
         <article className="channels">

@@ -1,17 +1,25 @@
+.home-container {
+    min-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+}
+
 .live {
     width: 100vw;
     height: 33vh;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     padding: 10px 20px;
 }
 
 .heading {
     font-size: 35px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .channels {
