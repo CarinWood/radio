@@ -33,10 +33,21 @@ Link:active {
     text-decoration: none;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
+
 .logo {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: white;
 }
 
 .logo-text {

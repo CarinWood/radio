@@ -5,10 +5,12 @@ import snail from "../../assets/images/NicePng_snail-png_1031942.png";
 const Header = () => {
   return (
     <header>
-      <div className="logo">
-        <p className="logo-text">Snigelradio</p>
-        <img src={snail} alt="snail" className="snail-img" />
-      </div>
+      <Link to="/">
+        <div className="logo">
+            <p className="logo-text">Snigelradio</p>
+            <img src={snail} alt="snail" className="snail-img" />
+        </div>
+      </Link>
       <ul className="list">
         <Link to="/">
           <li>Hem</li>
