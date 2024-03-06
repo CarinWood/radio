@@ -29,14 +29,24 @@ const Program = () => {
   }
 
   const showCategory = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrentPage(1);
     const selectedCategoryId = parseInt(event.target.value);
     setCategoryId(selectedCategoryId);
-    getPrograms(categoryId, currentPage);
+    getPrograms(categoryId, 1);
   };
 
   const nextPage = () => {
-    setCurrentPage(2);
-    getPrograms(categoryId, currentPage);
+    if (currentPage === totalPages) return;
+    setCurrentPage(currentPage + 1);
+    getPrograms(categoryId, currentPage + 1);
+    window.scrollTo(0, 0);
+  };
+
+  const previousPage = () => {
+    if (currentPage === 1) return;
+    setCurrentPage(currentPage - 1);
+    getPrograms(categoryId, currentPage - 1);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -64,13 +74,18 @@ const Program = () => {
         {programsArray.map((program, i) => {
           return (
             <div key={i}>
-              <ProgramItem name={program.name} img={program.programimage} description={program.description} url={program.programurl}/>
+              <ProgramItem
+                name={program.name}
+                img={program.programimage}
+                description={program.description}
+                url={program.programurl}
+              />
             </div>
           );
         })}
       </div>
       <div className="pagination">
-        <IoIosPlay className="arrow-left" />
+        <IoIosPlay className="arrow-left" onClick={previousPage} />
         <p className="pagination-p">
           {currentPage} / {totalPages}
         </p>
