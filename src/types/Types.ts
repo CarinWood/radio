@@ -50,5 +50,12 @@ export interface LiveAudio {
     url: string
   }
 
+  export interface ProgramsProps {
+    name: string;
+    programimage: string;
+    description: string;
+    programurl: string;
+  }
+
  
 

@@ -2,13 +2,13 @@ import "../styles/program.css";
 import { useEffect, useState } from "react";
 import { IoIosPlay } from "react-icons/io";
 import ProgramItem from "../components/programItem/ProgramItem";
+import { ProgramsProps } from "../types/Types";
 
-interface ProgramProps {
-  name: string;
-}
+
+
 
 const Program = () => {
-  const [programsArray, setProgramsArray] = useState<ProgramProps[]>([]);
+  const [programsArray, setProgramsArray] = useState<ProgramsProps[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
   const [categoryId, setCategoryId] = useState(2);
