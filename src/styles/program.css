@@ -5,17 +5,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 40px;
 }
 
 .categories {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 35px;
+    margin-bottom: -15px;
 }
 
 .category-p {
-    margin-right: 10px;
+    margin-right: 12px;
+    font-size: 18px;
 }
 
 .pagination {
@@ -47,4 +50,12 @@
     width: 90%;
     margin-bottom: 30px;
     padding: 0px 80px;
+}
+
+select {
+    background-color: #212529;
+    color: white;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: 18px;
 }

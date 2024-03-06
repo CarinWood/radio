@@ -16,7 +16,7 @@ const Program = () => {
   async function getPrograms(id: number, page: number) {
     try {
       const response = await fetch(
-        `http://api.sr.se/api/v2/programs/index?programcategoryid=${id}&&format=json&&page=${page}&&size=10`
+        `http://api.sr.se/api/v2/programs/index?programcategoryid=${id}&&format=json&&page=${page}&&size=9`
       );
       const data = await response.json();
       setCurrentPage(data.pagination.page);
