@@ -4,16 +4,15 @@ import { IoIosPlay } from "react-icons/io";
 import ProgramItem from "../components/programItem/ProgramItem";
 import { ProgramsProps } from "../types/Types";
 
-
-
-
 const Program = () => {
   const [programsArray, setProgramsArray] = useState<ProgramsProps[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
   const [categoryId, setCategoryId] = useState(2);
+  const [spinning, isSpinning] = useState(false);
 
   async function getPrograms(id: number, page: number) {
+    isSpinning(true);
     try {
       const response = await fetch(
         `http://api.sr.se/api/v2/programs/index?programcategoryid=${id}&&format=json&&page=${page}&&size=9`
@@ -22,7 +21,7 @@ const Program = () => {
       setCurrentPage(data.pagination.page);
       setTotalPages(data.pagination.totalpages);
       setProgramsArray(data.programs);
-      console.log(data.programs);
+      isSpinning(false);
     } catch (error) {
       console.error(error);
     }
@@ -59,6 +58,18 @@ const Program = () => {
 
   return (
     <div className="program-contianer">
+      <div className={spinning ? "spinner" : "spinner spinner-hidden"}>
+        <div className="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       <div className="categories">
         <p className="category-p">Välj kategori:</p>
         <select onChange={showCategory} value={categoryId}>
